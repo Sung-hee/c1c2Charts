@@ -25,6 +25,7 @@ $(function stock(){
           chart: {
             renderTo: 'container',
             type: 'arearange',
+            // marginTop: 20,
             events: {
               load: requestData
             }
@@ -36,16 +37,12 @@ $(function stock(){
             enabled: false
           },
           rangeSelector: {
+            inputEnabled: false,
+            labelStyle: {
+                visibility: 'hidden'
+            },
             buttonTheme: {
-              fill: 'none',
-              stroke: 'none',
-              'stroke-width': 0,
-              width: 60,
-              height: 30,
-              r: 8,
-              style: {
-                  fontSize: "15px"
-              }
+              visibility: 'hidden'
             },
             selected: 1
           },
