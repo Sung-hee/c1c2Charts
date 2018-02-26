@@ -29,19 +29,26 @@
   $(document).ready(function() {
     setInterval(function () {
       $.ajax({
-        url: "https://charttest-sungheeek.c9users.io/c1c2.json",
+        url: "http://61.72.187.6/phps/c1c2",
         type: "GET",
         dataType: "json",
         async: false,
         success: function(data) {
           var json_data = '';
           $.each(data, function(key, value){
-            json_data += '<button type="button" class="btn btn-danger" disabled>'+'고&nbsp&nbsp&nbsp&nbsp&nbsp'+value.dayc1high+'</br></br>'+'고&nbsp&nbsp&nbsp&nbsp&nbsp'+value.dayc2high+'</button>';
-            json_data += '&nbsp&nbsp&nbsp&nbsp&nbsp';
-            json_data += '<button type="button" class="btn btn-warning" disabled>'+value.c1+'&nbsp&nbsp&nbsp&nbsp&nbsp'+value.c1high+'</br></br>'+value.c2+'&nbsp&nbsp&nbsp&nbsp&nbsp'+value.c2high+'</button>';
+            json_data += '<button type="button" class="btn btn-danger" style="width:33%; font-size:20px;"disabled>'+'고&nbsp&nbsp&nbsp&nbsp&nbsp'+value.dayc1high+'</button>';
+            // json_data += '&nbsp&nbsp&nbsp&nbsp&nbsp';
+            json_data += '<button type="button" class="btn btn-warning" style="width:33%; font-size:20px;" disabled>'+value.c1+'&nbsp&nbsp&nbsp&nbsp&nbsp'+value.c1high+'</button>';
             // json_data += '<button type="button" class="btn btn-warning" disabled>'+value.c1high+'</button>';
-            json_data += '&nbsp&nbsp&nbsp&nbsp&nbsp';
-            json_data += '<button type="button" class="btn btn-primary" disabled>'+'저&nbsp&nbsp&nbsp&nbsp&nbsp'+value.dayc1low+'</br></br>'+'저&nbsp&nbsp&nbsp&nbsp&nbsp'+value.dayc2low+'</button>';
+            // json_data += '&nbsp&nbsp&nbsp&nbsp&nbsp';
+            json_data += '<button type="button" class="btn btn-primary" style="width:33%; font-size:20px;" disabled>'+'저&nbsp&nbsp&nbsp&nbsp&nbsp'+value.dayc1low+'</button>';
+            json_data += '</br></br>'
+            json_data += '<button type="button" class="btn btn-danger" style="width:33%; font-size:20px;"disabled>'+'고&nbsp&nbsp&nbsp&nbsp&nbsp'+value.dayc2high+'</button>';
+            // json_data += '&nbsp&nbsp&nbsp&nbsp&nbsp';
+            json_data += '<button type="button" class="btn btn-warning" style="width:33%; font-size:20px;" disabled>'+value.c2+'&nbsp&nbsp&nbsp&nbsp&nbsp'+value.c2high+'</button>';
+            // json_data += '<button type="button" class="btn btn-warning" disabled>'+value.c1high+'</button>';
+            // json_data += '&nbsp&nbsp&nbsp&nbsp&nbsp';
+            json_data += '<button type="button" class="btn btn-primary" style="width:33%; font-size:20px;" disabled>'+'저&nbsp&nbsp&nbsp&nbsp&nbsp'+value.dayc2low+'</button>';
             // json_data += '<button type="button" class="btn btn-primary" disabled>'+value.dayc1low+'</button>';
             // json_data += '</br>'
             // json_data += '<button type="button" class="btn btn-danger" disabled>'+'고&nbsp&nbsp&nbsp&nbsp&nbsp'+value.dayc2high+'</button>';
@@ -52,7 +59,7 @@
             // json_data += '<button type="button" class="btn btn-primary" disabled>'+'저&nbsp&nbsp&nbsp&nbsp&nbsp'+value.dayc2low+'</button>';
             // json_data += '<button type="button" class="btn btn-primary" disabled>'+value.dayc1low+'</button>';
           });
-          $('#chart').replaceWith(json_data);
+          $('#chart').html(json_data);
         }
       });
     }, 5000);
